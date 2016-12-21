@@ -1,0 +1,32 @@
+---
+output: html_document
+---
+## Simulation exercise
+```{r}
+set.seed(10)
+lambda <- 0.2
+n <- 40
+N <- 500
+data <- replicate(N, mean(rexp(n, lambda)))
+```
+### 1. Show the sample mean and compare it to the theoretical mean of the distribution.
+```{r}
+mean(data) # Sample mean
+1/lambda # Theorical mean
+```
+
+The sample mean is similar to the theorical mean
+
+### 2. Show the sample mean and compare it to the theoretical mean of the distribution.
+```{r}
+var(data) # Sample variance
+((1 / lambda) / sqrt(n)) ^ 2 # Theorical variance
+```
+
+The sample variance is similar to the theorical variance
+
+### 3. Show that the distribution is approximately normal.
+```{r}
+qqnorm(data)
+qqline(data, col = 2)
+```
